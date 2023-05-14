@@ -9,15 +9,22 @@ client = weaviate.Client(
 pokemon_class = {
     "class": "Pokemon",
     "description": "An image of a pokemon",
-    "vectorizeIndexType": "hnsw",
-    "vectorizer": "image2vec-neural",
-    "properties": [
-        {
-            "name": "image",
-            "dataType": ["blob"]
+    "vectorizer": "img2vec-neural",
+    "moduleConfig": {
+        "img2vec-neural": {
+            "imageFields": [
+                "image"
+            ]
         },
-    ],
+        "properties": [
+            {
+                "name": "image",
+                "dataType": ["blob"]
+            },
+        ],
+    }
 }
+
 
 def create_schema():
     client.schema.create_class(pokemon_class)
@@ -25,5 +32,3 @@ def create_schema():
 
 if __name__ == '__main__':
     create_schema()
-
-
