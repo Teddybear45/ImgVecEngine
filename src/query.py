@@ -31,7 +31,7 @@ def decode_queried_image(queried_image):
 
 
 if __name__ == '__main__':
-    search_file = "jiggly.png"
+    search_file = "q.png"
     search_loc = "search/query"
     results_loc = "search/results"
     search_file_loc = os.path.join(search_loc, search_file)
